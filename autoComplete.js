@@ -7,7 +7,7 @@ var autoCompletion = {
         else for (var x in param){
             this[x]=param[x];
         }
-		$('.autoComplet').on('keyup', function () {
+		$('.autoComplete').on('keyup', function () {
 			var key=this.value;
 			if (key.length==0){
 				$(this).data('id',0);
