@@ -14,7 +14,7 @@ var autoCompletion = {
 				return;
 			}
 			var group=$(this).data('group');
-			$.getJSON(this.url,{key:key},function(data){
+			$.getJSON(self.url,{key:key},function(data){
 				var target=self.getTarget('completeList',group),str='';
 				$.each(data,function(i,v){
 					str+=self.getTpl(v);
