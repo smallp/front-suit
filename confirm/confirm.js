@@ -1,4 +1,4 @@
-CONFIRM = (function () {
+Confirm = (function () {
     var tpl = null;
     var path = (function () {
         var a = {},expose = +new Date(),

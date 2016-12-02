@@ -3,10 +3,10 @@ var autoCompletion = {
 	init: function (param) {
 		var self=this;
 		if (typeof param=='string')
-            this.url=param;
-        else for (var x in param){
-            this[x]=param[x];
-        }
+			this.url=param;
+		else for (var x in param){
+			this[x]=param[x];
+		}
 		$('.autoComplete').on('keyup', function () {
 			var key=this.value;
 			if (key.length==0){
