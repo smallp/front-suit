@@ -36,7 +36,7 @@ $.extend({
 		fillTpl : function(tpl, data) {
 			return tpl.replace(/{\w+?}/g, function(word) {
 				var key = word.substr(1, word.length - 2);
-				return data[x][key];
+				return data[key];
 			});
 		},
 		time2str : function(time) {

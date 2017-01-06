@@ -43,7 +43,7 @@ window.Pager ={
 			data=d;
 			this.total=1;
 		}else{
-			this.pager.init(parseInt(location.hash.length==0?1:location.hash.substr(1)),d.total);
+			this.pager.draw(parseInt(location.hash.length==0?1:location.hash.substr(1)),d.total);
 			this.total=d.total;
 			data=d.data;
 		}
@@ -54,7 +54,8 @@ window.Pager ={
 		for (var x in data){
 			res+= this.tpl.replace(reg, function (word) {
 				var key=word.substr(1,word.length-2);
-				return data[x][key];
+				if (key=='_stripe') return (x%2==0)?'odd':'even';
+                else return data[x][key];
 			});
 		}
 		this.target.html(res);
@@ -87,7 +88,7 @@ window.Pager ={
 		delete this.param[key];
 	},
 	pager:{
-		init:function(num,total) {
+		draw:function(num,total) {
 			if (isNaN(num)||total<num){
 				num=1;
 			}
@@ -124,7 +125,7 @@ window.Pager ={
 			return '<li class="paginate_button"><a href="#'+(page-1)+'">'+page+'</a></li>';
 		},
 		here:function(page){
-			return '<li class="paginate_button"><a href="javascript:;">'+page+'</a></li>';
+			return '<li class="paginate_button active"><a href="javascript:;">'+page+'</a></li>';
 		}
 	}
 }
