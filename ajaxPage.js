@@ -61,7 +61,7 @@ window.Pager ={
 		this.target.html(res);
 	},
 	reload:function(reset){
-		if (typeof(reset)=='undefined'||this.param.page==0){
+		if (typeof(reset)=='undefined'||location.hash=='#0'){
 			this.loadPage();
 		}else location.href='#0';
 	},

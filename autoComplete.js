@@ -25,7 +25,7 @@ var autoCompletion = {
 		$('.completeList').on('click','li',function(){
 			var obj=$(this);
 			var parent=obj.parent();
-			var target=self.getTarget('autoComplet',parent.data('group'));
+			var target = self.getTarget('autoComplete',parent.data('group'));
 			target.data('id',obj.data('id')).val(obj.text());
 			parent.html('');
 		});
