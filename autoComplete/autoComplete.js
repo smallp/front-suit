@@ -8,18 +8,21 @@ var autoCompletion = {
 			this[x]=param[x];
 		}
 		$('.autoComplete').on('keyup', function () {
+			var obj = $(this);
 			var key=this.value;
 			if (key.length==0){
-				$(this).data('id',0);
+				obj.data('id',0);
+				self.getTarget('completeList', group).hide();
 				return;
 			}
-			var group=$(this).data('group');
+			var group=obj.data('group');
 			$.getJSON(self.url,{key:key},function(data){
 				var target=self.getTarget('completeList',group),str='';
+				target.css('width', obj.css('width'));
 				$.each(data,function(i,v){
 					str+=self.getTpl(v);
 				})
-				target.html(str);
+				target.html(str).show();
 			});
 		});
 		$('.completeList').on('click','li',function(){
