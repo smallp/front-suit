@@ -30,7 +30,7 @@ var autoCompletion = {
 			var parent=obj.parent();
 			var target = self.getTarget('autoComplete',parent.data('group'));
 			target.data('id',obj.data('id')).val(obj.text());
-			parent.html('');
+			parent.hide();
 		});
 	},
 	getTarget:function(cla,group){
