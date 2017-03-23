@@ -1,12 +1,6 @@
 var autoCompletion = {
-	url:'',
-	init: function (param) {
+	init: function () {
 		var self=this;
-		if (typeof param=='string')
-			this.url=param;
-		else for (var x in param){
-			this[x]=param[x];
-		}
 		$('.autoComplete').on('keyup', function () {
 			var obj = $(this);
 			var key=this.value;
@@ -16,11 +10,13 @@ var autoCompletion = {
 				return;
 			}
 			var group=obj.data('group');
-			$.getJSON(self.url,{key:key},function(data){
+			$.getJSON(obj.data('url'),{key:key},function(data){
 				var target=self.getTarget('completeList',group),str='';
 				target.css('width', obj.css('width'));
 				$.each(data,function(i,v){
-					str+=self.getTpl(v);
+					var value = obj.data('value');
+					var name = obj.data('name');
+					str+=self.getTpl(v,value?value:'id',name?name:'name');
 				})
 				target.html(str).show();
 			});
@@ -29,7 +25,7 @@ var autoCompletion = {
 			var obj=$(this);
 			var parent=obj.parent();
 			var target = self.getTarget('autoComplete',parent.data('group'));
-			target.data('id',obj.data('id')).val(obj.text());
+			target.data('data', obj.data('data')).val(obj.text());
 			parent.hide();
 		});
 	},
@@ -42,7 +38,7 @@ var autoCompletion = {
 		}
 		return res;
 	},
-	getTpl: function (data) {
-		return '<li data-id="' + data.id + '">' + data.name + '</li>';
+	getTpl: function (data,value,name) {
+		return '<li data-data="' + data[value] + '">' + data[name] + '</li>';
 	}
 };
