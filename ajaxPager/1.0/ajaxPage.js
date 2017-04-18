@@ -2,7 +2,7 @@
  * Created by Small on 2016/9/13.
  */
 window.Pager ={
-	url:location.href,
+	url:location.pathname,
 	tpl:'',
 	target:'',
 	param:{},
