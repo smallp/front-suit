@@ -20,7 +20,13 @@ $(function() {
                 }
             }
             if (val=='') continue;
-            
+            var t;
+            if (t=item.data('repeat')){
+                if (item.val()!=elements[t].value){
+                    error(item[0],'请确认信息一致');
+                    return false;
+                }
+            }
         }
         return true;
     }});
