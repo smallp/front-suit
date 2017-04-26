@@ -1,0 +1,5 @@
+table.pager-table thead th{ text-align: center; cursor: pointer;}
+.pager-table td{text-align: center;}
+.pager-sort{background: url(sort_both.png) no-repeat center right;}
+.pager-sort-asc{background: url(sort_asc.png) no-repeat center right;}
+.pager-sort-desc{background: url(sort_desc.png) no-repeat center right;}
