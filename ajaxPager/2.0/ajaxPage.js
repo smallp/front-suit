@@ -8,7 +8,7 @@ class _Table{
 	constructor(param){
 		this.param={};
 		this.staticParam={};
-		this.size=0;
+		this.size=10;
 		this.page=-1;
 		this._data=null;
 		this.fun=null;
@@ -70,6 +70,10 @@ class _Table{
 	}
 	delParam(key){
 		delete this.param[key];
+	}
+	setSize(size){
+		this.size=size;
+		this.staticParam.size=size;
 	}
 }
 _Table.staticKeys=['size','sort','sortType'];
