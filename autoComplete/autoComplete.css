@@ -1,3 +1,3 @@
 .completeList{position: absolute; z-index: 11111; border: 1px solid #517397; border-radius: 8px; overflow: hidden;display: none;}
-.completeList li{ height: 28px; line-height: 28px; background: white; border-bottom: 1px solid #517397; text-indent: 20px;}
+.completeList li{ height: 28px; line-height: 28px; background: white; border-bottom: 1px solid #517397; text-indent: 20px;list-style: none;-webkit-padding-start: 0px;}
 .completeList li:hover{background: #fffae3;}

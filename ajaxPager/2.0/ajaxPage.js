@@ -22,7 +22,7 @@ class _Table{
 	loadPage(page){
 		this.page=parseInt(page);
 		this.param.page=page;
-		$.get(this.url,this.param, function (d) {
+		$.get(this.url,$.extend({},this.param,this.staticParam), function (d) {
 			this.showData(d);
 		}.bind(this),'json');
 	}

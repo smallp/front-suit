@@ -56,3 +56,6 @@ $(document).ajaxError(function(event, res) {
 		alert('服务器错误！');
 	}
 });
+$(document).ajaxComplete(function() {
+	if (typeof layer!='undefined') layer.closeAll('loading');
+});
